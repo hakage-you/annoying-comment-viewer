@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src 'none'; worker-src 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initial Setup</title>
+    <link href="./settings.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root">
+        <div class="container">
+            <h1 class="title">Google API Setup</h1>
+            <p style="margin-bottom: 2rem; font-size: 0.9rem; color: #ccc; line-height: 1.5;">
+                YouTube APIを利用するために、Google Cloud Consoleで作成したOAuth 2.0 クライアント情報を入力してください。<br>
+                <span style="font-size: 0.8rem; color: #999;">※あなたの鍵情報はあなたの端末にのみ保存され、YouTube APIの実行及び認証以外の目的には利用されません。</span>
+            </p>
+            <form id='form'>
+                <div class="input-group">
+                    <label for="oauth2ClientId">Client ID</label>
+                    <input id='oauth2ClientId' type='text'
+                        placeholder="xxxxxxxxxxxx-xxxxxxxxxxxxxxxx.apps.googleusercontent.com" required />
+                </div>
+                <div class="input-group">
+                    <label for="oauth2ClientSecret">Client Secret</label>
+                    <input id='oauth2ClientSecret' type='password' placeholder="GOCSPX-xxxxxxxxxxxxxxxxxxxxxxxx"
+                        required />
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <a href="#" id="console-link"
+                        style="color: #4dabf7; text-decoration: none; font-size: 0.85rem; border-bottom: 1px solid #4dabf7;">
+                        → Google Cloud Console で鍵を作成・確認する
+                    </a>
+                </div>
+
+                <div id="error-msg" class="error-msg" style="display: none; margin-bottom: 1rem; white-space: pre-wrap;"></div>
+
+                <div class="action-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <button id='save-button' type="submit" class="submit-button">Save and Continue</button>
+                    <button id='cancel-button' type="button" class="submit-button" style="display: none; background-color: #555;">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./init.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="base-uri 'none'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src 'none'; worker-src 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link href="./settings.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root">
+        <div class="container">
+            <h1 class="title">Settings</h1>
+            <form id='form'>
+                <div class="input-group">
+                    <label for="input">YouTube Video ID or live URL</label>
+                    <input id='input' type='text'
+                        placeholder="https://www.youtube.com/live/xxxxxxxxxxx or xxxxxxxxxxx" />
+                    <div id="video-error" class="error-msg" style="display: none; margin-top: 4px;"></div>
+                </div>
+
+                <div id="tts-error" class="error-msg" style="display: none;"></div>
+
+                <div id="tts-settings">
+                    <div class="input-group">
+                        <label for="ttsEngine">TTS Engine</label>
+                        <select id="ttsEngine">
+                            <option value="voicevox">VOICEVOX</option>
+                            <option value="sharevox">SHAREVOX</option>
+                            <option value="coeiroink">COEIROINK (v1 API)</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="ttsHost">TTS Host</label>
+                            <input type="text" id="ttsHost" placeholder="127.0.0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="ttsPort" id="ttsPortLabel">TTS Port</label>
+                            <input type="text" id="ttsPort" placeholder="50025">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="ttsOwnerSpeakerId">Owner Voice</label>
+                        <select id="ttsOwnerSpeakerId"></select>
+                    </div>
+                    <div class="input-group" id="ttsOwnerStyleGroup" style="display: none;">
+                        <label for="ttsOwnerStyleId">Owner Style</label>
+                        <select id="ttsOwnerStyleId"></select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="ttsOtherSpeakerId">Others Voice</label>
+                        <select id="ttsOtherSpeakerId"></select>
+                    </div>
+                    <div class="input-group" id="ttsOtherStyleGroup" style="display: none;">
+                        <label for="ttsOtherStyleId">Others Style</label>
+                        <select id="ttsOtherStyleId"></select>
+                    </div>
+                </div>
+
+                <div class="options-group">
+                    <div class="option-item">
+                        <label class="switch">
+                            <input type="checkbox" id="enableTts">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="option-label">Enable TTS (VOICEVOX)</span>
+                    </div>
+
+                    <div class="option-item">
+                        <label class="switch">
+                            <input type="checkbox" id="enableStickyMode">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="option-label">Enable Sticky Mode</span>
+                    </div>
+                </div>
+
+                <div class="action-group">
+                    <button id='start-button' type="submit" class="submit-button">Start App</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./settings.js"></script>
+</body>
+
+</html>

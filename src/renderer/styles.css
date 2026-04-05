@@ -1,0 +1,111 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    background-color: transparent;
+}
+
+@media screen and (max-width:200px) {
+    span {
+        font-size: max(10px, 6vw);
+    }
+
+    input {
+        width: 80%;
+        min-width: 50px;
+        height: 15px;
+        font-size: 11px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.yurayura {
+    transform-origin: center bottom;
+    animation: yurayura 2s ease-in-out infinite;
+    -webkit-text-stroke: white;
+    color: white;
+}
+
+@keyframes yurayura {
+
+    0%,
+    100% {
+        transform: translate(-10px);
+    }
+
+    50% {
+        transform: translate(10px);
+    }
+}
+
+.poyoyon {
+    animation: poyoyon 0.5s;
+    /* animation-iteration-count: infinite; */
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes poyoyon {
+    0% {
+        transform: translateY(-140px);
+        opacity: 0;
+    }
+    
+    10% {
+        transform: translateY(-130px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    65% {
+        transform: translateY(-30px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ★ 追加: Pulseアニメーション (脈動/光り輝く動き) */
+.pulse {
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1); /* 回転や移動は親要素に任せる */
+    }
+    50% {
+        transform: scale(1.08); /* スケールのみの変更に集中 */
+        box-shadow: 0 0 20px 5px rgba(255, 64, 129, 0.7);
+    }
+}
+
+/* ★ 追加: Wobbleアニメーション (揺らぎ/不安定な動き) */
+.wobble {
+    animation: wobble 4s linear infinite;
+}
+
+/* ... existing code ... */
+@keyframes wobble {
+    0%, 100% {
+        transform: perspective(1000px);
+    }
+    25% {
+        /* 回転をより大きく、よりドラマチックに */
+        transform: perspective(1000px) rotateY(10deg) rotateX(5deg); 
+    }
+    50% {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(-10deg);
+    }
+    75% {
+        transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+    }
+}

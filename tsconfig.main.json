@@ -1,0 +1,10 @@
+{
+    "extends": ".",
+    "compilerOptions": {
+        "module": "CommonJS",
+        "outDir": "public"
+    },
+    "include": [
+        "src/*.ts", "src/@types/*"
+    ],
+}

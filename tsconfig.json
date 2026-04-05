@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    /* 言語と環境 */
+    "target": "esnext",
+    "lib": ["DOM", "esnext"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+
+    /* モジュール解決 */
+    "module": "esnext",
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+
+    /* 型定義 */
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "types": [
+      "node"
+    ],
+
+    /* インターレップと出力 */
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+
+    /* 以下、拡張用設定（必要に応じてコメントアウトを外す） */
+    // "incremental": true,
+    // "composite": true,
+    // "declaration": true,
+    // "declarationMap": true,
+    // "outDir": "./dist",
+    // "removeComments": true,
+    // "noEmit": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "allowJs": true,
+    // "checkJs": true,
+    // "paths": { "@/*": ["src/*"] }
+  },
+
+  /* ts-node 用の設定 */
+  "ts-node": {
+    "compilerOptions": {
+      "target": "ES2015",
+      "module": "CommonJS",
+      "typeRoots": [
+        "./node_modules/@types",
+        "./src/@types"
+      ]
+    },
+    "files": true
+  },
+
+  /* 明示的に含める個別のファイル */
+  "files": [
+    "src/@types/global.d.ts",
+    "src/@types/assets.d.ts"
+  ],
+
+  /* チェック対象のディレクトリ */
+  "include": [
+    "src/renderer/**/*",
+    "src/@types/*.d.ts"
+  ],
+
+  /* 除外対象 */
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

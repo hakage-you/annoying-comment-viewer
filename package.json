@@ -1,0 +1,89 @@
+{
+  "name": "annoying-comment-viewer",
+  "author": "hakage you",
+  "version": "1.0.0",
+  "description": "It's just a joke.",
+  "main": "public/src/main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@types/base64-url": "^2.2.2",
+    "@types/csp-html-webpack-plugin": "^3.0.2",
+    "@types/express": "^5.0.6",
+    "@types/node": "^17.0.45",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/uuid": "^10.0.0",
+    "@types/webpack-node-externals": "^3.0.4",
+    "base64-url": "^2.3.3",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "electron": "^41.1.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.5.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5",
+    "wait-on": "^7.2.0",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.7.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@fontsource/roboto": "^5.0.12",
+    "@mui/icons-material": "^5.3.1",
+    "@mui/material": "^5.3.1",
+    "axios": "^1.14.0",
+    "base64-url": "^2.3.3",
+    "csp-html-webpack-plugin": "^5.1.0",
+    "dotenv": "^17.4.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.0.1",
+    "express": "^4.18.2",
+    "googleapis": "^131.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "use-interval": "^1.4.0",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "dev": "chcp 65001 > nul && rimraf public && run-p --race _start:*",
+    "_start:tsc": "tsc -w -p tsconfig.main.json",
+    "_start:webpack": "cross-env NODE_ENV=\"development\" webpack",
+    "_start:electron": "wait-on ./public/index.html && cross-env NODE_ENV=\"development\" electron .",
+    "dev:main": "cross-env NODE_ENV=\"development\" npm run dev",
+    "dev:ui": "cross-env DEBUG_UI=true npm run dev",
+    "dev:all": "cross-env NODE_ENV=\"development\" DEBUG_UI=true npm run dev",
+    "build": "cross-env NODE_ENV=\"production\" NODE_OPTIONS=\"--max-old-space-size=4096\" webpack --progress",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "overrides": {
+    "tar": "^7.5.11",
+    "@tootallnate/once": "^3.0.1",
+    "tmp": "^0.2.4"
+  }
+}
